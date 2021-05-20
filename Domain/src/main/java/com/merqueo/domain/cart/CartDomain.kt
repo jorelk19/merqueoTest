@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 import java.io.IOException
 import java.lang.Exception
 
-class CartDomain(private val cartRepositoryManager: ILocalRepositoryManager<Cart, CartDTO>, private val movieRepositoryManager: ILocalRepositoryManager<Movie, MovieDTO>, private val cartManager: CartManager) : DomainManager<ICartResult>() {
+class CartDomain(private val cartRepositoryManager: ILocalRepositoryManager<Cart, CartDTO>, private val movieRepositoryManager: ILocalRepositoryManager<Movie, MovieDTO>, private val cartManager: ICartManager) : DomainManager<ICartResult>() {
     private lateinit var currentCartResult: ICartResult
     override fun domainResult(cartResult: ICartResult) {
         currentCartResult = cartResult
@@ -21,7 +21,7 @@ class CartDomain(private val cartRepositoryManager: ILocalRepositoryManager<Cart
         launch(Dispatchers.Main) {
             try {
                 errorManager.onShowLoader()
-                if (!cartManager.isInitialized) {
+                if (!cartManager.getIsInitialized()) {
                     cartManager.createCart()
                 }
                 if (cartManager.getCurrentCart().cartId == 0) {
@@ -121,7 +121,7 @@ class CartDomain(private val cartRepositoryManager: ILocalRepositoryManager<Cart
         }
     }
 
-    private fun getCompletedMovieList(cart: Cart): ArrayList<Movie> {
+    fun getCompletedMovieList(cart: Cart): ArrayList<Movie> {
         val completedMovieData = ArrayList<Movie>()
         cart.movies.forEach { movie ->
             val movieDTO = MovieDTO()

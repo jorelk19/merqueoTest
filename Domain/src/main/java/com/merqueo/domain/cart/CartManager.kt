@@ -3,19 +3,23 @@ package com.merqueo.domain.cart
 import com.merqueo.businessmodels.business.Cart
 import com.merqueo.businessmodels.business.Movie
 
-class CartManager {
+class CartManager : ICartManager {
     private lateinit var currentCart : Cart
-    var isInitialized : Boolean = false
-    fun getCurrentCart() : Cart {
+    private var isInitialized : Boolean = false
+    override fun getCurrentCart() : Cart {
         return currentCart
     }
 
-    fun updateCart(cartId : Int){
+    override fun getIsInitialized() : Boolean{
+        return isInitialized
+    }
+
+    override fun updateCart(cartId : Int){
         val updatedCart = currentCart.copy(cartId = cartId)
         currentCart = updatedCart
     }
 
-    fun addToCart(movie : Movie){
+    override fun addToCart(movie : Movie){
         createCart()
 
         val indexItem = currentCart.movies.indexOfFirst { it.id == movie.id }
@@ -28,7 +32,7 @@ class CartManager {
         }
     }
 
-    fun createCart() {
+    override fun createCart() {
         if(!::currentCart.isInitialized)
         {
             isInitialized = true
@@ -36,7 +40,7 @@ class CartManager {
         }
     }
 
-    fun removeToCart(movie : Movie){
+    override fun removeToCart(movie : Movie){
         if(movie.quantity == 0) {
             currentCart.movies.removeIf { it.id == movie.id }
         }else{
@@ -47,21 +51,13 @@ class CartManager {
         }
     }
 
-    fun emptyCart(){
+    override fun emptyCart(){
         currentCart = Cart()
         isInitialized = false
     }
 
-    fun setStoredCart(cart : Cart){
+    override fun setStoredCart(cart : Cart){
         isInitialized = true
         currentCart = cart
-    }
-
-    fun getMovieQuantity(movie: Movie): Int {
-        currentCart.movies.find { it.id == movie.id }?.let {
-            return it.quantity
-        } ?: run {
-            return 0
-        }
     }
 }
