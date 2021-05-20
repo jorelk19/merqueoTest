@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="HeaderControl">
+        <attr name="headerWindowTitle" format="string" />
+        <attr name="headerBackVisibility" format="boolean" />
+    </declare-styleable>
+</resources>

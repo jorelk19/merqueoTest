@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.merqueo.edson.ui.viewModels.CartItemViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/itemMovieContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimen3"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/ivMovieImage"
+            android:layout_width="@dimen/dimen80"
+            android:layout_height="@dimen/dimen80"
+            android:layout_margin="@dimen/dimen10"
+            android:contentDescription="@null"
+            android:padding="@dimen/dimen5"
+            android:src="@{viewModel.movieImage}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvMovieName"
+            android:layout_width="@dimen/dimen120"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen10"
+            android:layout_marginTop="@dimen/dimen20"
+            android:gravity="start"
+            android:lines="3"
+            android:text="@{viewModel.movieName}"
+            android:textAlignment="textStart"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/textSize13"
+            app:layout_constraintBottom_toBottomOf="@+id/ivMovieImage"
+            app:layout_constraintStart_toEndOf="@+id/ivMovieImage"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="@dimen/dimen150"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dimen15"
+            android:layout_marginBottom="@dimen/dimen10"
+            android:background="@drawable/static_custom_background_add_remove_product_item"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                android:id="@+id/ivDecrementMovie"
+                android:layout_width="@dimen/dimen40"
+                android:layout_height="@dimen/dimen40"
+                android:layout_marginStart="@dimen/dimen10"
+                android:contentDescription="@null"
+                android:scaleType="center"
+                android:src="@drawable/ic_trash"
+                android:onClick="@{() -> viewModel.onRemoveFromCart()}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvCounterMovie" />
+
+            <TextView
+                android:id="@+id/tvQuantityMovie"
+                android:layout_width="@dimen/dimen40"
+                android:layout_height="@dimen/dimen40"
+                android:layout_marginStart="@dimen/dimen10"
+                android:layout_marginEnd="@dimen/dimen10"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:text="@{viewModel.movieQuantity}"
+                android:textAlignment="center"
+                android:textSize="@dimen/textSize17"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/ivIncrementMovie" />
+
+            <ImageView
+                android:id="@+id/ivIncrementMovie"
+                android:layout_width="@dimen/dimen40"
+                android:layout_height="@dimen/dimen40"
+                android:layout_marginEnd="@dimen/dimen5"
+                android:contentDescription="@null"
+                android:gravity="center"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_plus"
+                android:onClick="@{() -> viewModel.onAddToCart()}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

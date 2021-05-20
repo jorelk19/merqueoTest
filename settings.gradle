@@ -1,0 +1,7 @@
+include ':DI'
+include ':BusinessModels'
+include ':Domain'
+include ':Repository'
+include ':Utils'
+include ':app'
+rootProject.name = "MerqueoTest"

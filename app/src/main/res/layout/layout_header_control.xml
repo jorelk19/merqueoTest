@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="headerViewModel"
+            type="com.merqueo.edson.ui.viewModels.HeaderViewModel" />
+        <import type="android.view.View"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@drawable/background_header_control"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen60">
+
+        <ImageView
+            android:id="@+id/ivHeaderBack"
+            android:layout_width="@dimen/dimen40"
+            android:layout_height="@dimen/dimen40"
+            android:layout_margin="@dimen/dimen5"
+            android:visibility="@{headerViewModel.backVisibility ? View.VISIBLE : View.GONE}"
+            android:src="@drawable/arrow_back"
+            android:onClick="@{() -> headerViewModel.onBackHeader()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvHeaderScreenTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textSize20"
+            android:textStyle="bold"
+            android:textColor="@color/colorAccent"
+            android:text="@{headerViewModel.headerTitle}"
+            app:layout_constraintBottom_toBottomOf="@+id/ivHeaderBack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivHeaderBack"
+            app:layout_constraintTop_toTopOf="@+id/ivHeaderBack" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

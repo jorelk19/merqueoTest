@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Merqueo test</string>
+    <string name="timerForValidateInternet">3000</string>
+    <string name="movie_name">Peliculas</string>
+    <string name="movie_title">Peliculas</string>
+    <string name="overview_title">Sinopsis</string>
+    <string name="release_date">Fecha de estreno</string>
+    <string name="movie_detail_title">Detalle de la película</string>
+    <string name='cart_empty'>Vaciar carrito</string>
+    <string name="cart_button_continue">Continuar</string>
+    <string name="cart_total">Total</string>
+    <string name="cart_checkout">Ir a pagar</string>
+    <string name="current_content_cart">Tienes actualmente en tu carrito</string>
+    <string name="cart_empty_title">Tu carrito está vacío</string>
+    <string name="cart_empty_subtitle">Parece que aún no has agregado ningún producto</string>
+    <string name="add_to_cart">Añadir al carrito</string>
+</resources>

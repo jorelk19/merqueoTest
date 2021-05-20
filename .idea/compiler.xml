@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel target="1.8">
+      <module name="Merqueo_test.app" target="1.8" />
+      <module name="MerqueoTest.app.Local" target="1.8" />
+      <module name="MerqueoTest.app.Mod" target="1.8" />
+      <module name="MerqueoTest.app.Models" target="1.8" />
+      <module name="MerqueoTest.BusinessModels.models" target="1.8" />
+      <module name="MerqueoTest.Local" target="1.8" />
+      <module name="MerqueoTest.Mod" target="1.8" />
+      <module name="MerqueoTest.models" target="1.8" />
+      <module name="MerqueoTest.Repository.LocalRepository" target="1.8" />
+      <module name="MerqueoTest.UtilsNew" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

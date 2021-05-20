@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="itemViewModel"
+            type="com.merqueo.edson.ui.viewModels.MovieItemViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/itemContainer"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen150"
+        android:layout_margin="@dimen/dimen5"
+        android:background="@drawable/background_movie_item"
+        android:onClick="@{() -> itemViewModel.showMovieDetail()}">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/movie_detail_container"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen100"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivMovie"
+                android:layout_width="@dimen/dimen80"
+                android:layout_height="@dimen/dimen80"
+                android:layout_margin="@dimen/dimen5"
+                android:src="@{itemViewModel.movieImage}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvTitleMovieName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen40"
+                android:layout_marginTop="@dimen/dimen10"
+                android:text="@string/movie_name"
+                android:textSize="@dimen/textSize15"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/ivMovie"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvMovieName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen40"
+                android:layout_marginTop="@dimen/dimen10"
+                android:text="@{itemViewModel.movieName}"
+                android:textSize="@dimen/textSize20"
+                app:layout_constraintStart_toEndOf="@+id/ivMovie"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitleMovieName" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/quantity_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/movie_detail_container">
+
+            <Button
+                android:id="@+id/ivIncrementMovie"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dimen40"
+                android:layout_marginEnd="@dimen/dimen5"
+                android:contentDescription="@null"
+                android:gravity="center"
+                android:text="@string/add_to_cart"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_plus"
+                android:onClick="@{() -> itemViewModel.onAddMovieToCart()}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
