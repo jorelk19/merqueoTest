@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name='statusRedLabel'>#FF5722</color>
+    <color name='statusYellowLabel'>#E64A19</color>
+    <color name='backgroundGray'>#fff3f5f6</color>
+</resources>

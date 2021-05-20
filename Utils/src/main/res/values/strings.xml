@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_api_key">f60085a37ecfbeb9457006533819927a</string>
+    <string name="something_went_wrong_retry">Algo salió mal</string>
+    <string name="image_api">https://image.tmdb.org</string>
+    <string name='currencyIdentifier' translatable='false'>en_US</string>
+    <string name='hasDecimals' translatable='false'>false</string>
+    <string name="movies_api">https://api.themoviedb.org</string>
+</resources>
